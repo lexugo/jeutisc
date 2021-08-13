@@ -5,10 +5,9 @@ function Search({ refine }) {
         <form action="" role="search">
             <label htmlFor="search">Search articles</label>
             <input
-            id='search'
-            type='search'
-            placeholder="Save the Planet"
-            onChange={(e) => refine(e.currentTarget.value)}
+                id='search'
+                type='search'
+                onChange={(e) => refine(e.currentTarget.value)}
             />
         </form>
     )
