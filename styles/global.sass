@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap')
-    
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
+
+body, html, *
+    margin: 0
+    padding: 0
+
 // Clear
 input
   &[type="search"]
@@ -16,10 +21,14 @@ input
       width: 0
       height: 0
 
-// Page
-body, html, *
-    margin: 0
-    padding: 0
+ul, 
+ol
+    list-style-type: none
+
+a
+    text-decoration: inherit
+    color: inherit
+
 
 #__next // app
     min-height: 100vh
@@ -27,17 +36,15 @@ body, html, *
     place-items: center
 
 main.home
-    display: flex
-    flex-direction: column
+    display: grid
+    grid-template-rows: auto auto auto
     gap: 1em
-    justify-content: center
+    justify-items: center
 
     h1
         font-size: 4em
         text-transform: uppercase
         font-family: 'Source Sans Pro', sans-serif
-        text-align: center
-
 
     .search
         input
@@ -52,3 +59,24 @@ main.home
             &:hover,
             &:focus
                 box-shadow: 0 1px 6px #dfe1e5
+
+    .categories
+        margin-top: 4em
+        display: flex
+        gap: 2em
+
+        font-size: 1.1em
+        font-weight: 700
+        font-family: 'Roboto', sans-serif
+
+        li
+            margin: .5em 0
+            text-transform: capitalize
+
+        .tags
+            font-size: .8em
+            font-weight: 400
+
+            li::before
+                content: "-"
+                margin-right: 1em
