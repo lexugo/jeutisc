@@ -6,14 +6,15 @@
 function Home({ categories }) {
     return (
         <main className="home">
-            <h1>Jeutisc</h1>
+            <header>
+              <h1>Jeutisc</h1>
+            </header>
             <form className='search'>
               <div className="searchBar">
                 <input type="search" />
               </div>
-              
-              <Categories categories={[]} />
             </form>
+            <Categories categories={categories} />
         </main>
     )
 }

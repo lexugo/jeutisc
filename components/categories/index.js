@@ -10,7 +10,7 @@ export default function Categories({ categories }) {
 function Category({ label, items }) {
     return (
         <>
-            <h2>{ label }</h2>
+            <a href="#">{ label }</a>
             { items?.length > 0 && <Tags tags={items} /> }
         </>
     )
@@ -18,8 +18,8 @@ function Category({ label, items }) {
 
 function Tags({ tags }) {
     return (
-        <ul>
-            { tags.map(tag => <li key={tag}>{ tag }</li>)}
+        <ul className="tags">
+            { tags.map(tag => <li key={tag}><a href="#">{ tag }</a></li>)}
         </ul>
     )
 }
