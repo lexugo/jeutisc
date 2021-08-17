@@ -17,3 +17,12 @@ export async function getTags(category) {
     return tags.map(tag => tag.value)
 }
 
+export async function getFacets() { // Todo: rename
+    const categories = await getCategories()
+    const tags = await Promise.all(categories.map(category => getTags(category)))
+
+    return categories.map((category, index) => ({
+        label: category,
+        items: tags[index]
+    }))
+}

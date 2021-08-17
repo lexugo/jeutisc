@@ -1,4 +1,4 @@
- import { getCategories, getTags } from 'services/algolia'
+ import { getFacets } from 'services/algolia'
  
  import Search from 'components/search'
  import Categories from 'components/categories'
@@ -20,12 +20,7 @@ function Home({ categories }) {
 }
 
 export async function getStaticProps() {
-  let categories = await getCategories()
-  const tags = await Promise.all(categories.map(category => getTags(category)))
-  categories = categories.map((category, index) => { return {
-    label: category,
-    items: tags[index]
-  }})
+  const categories = await getFacets()
 
   return { 
     props: { categories },

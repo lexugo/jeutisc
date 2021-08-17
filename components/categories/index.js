@@ -1,3 +1,5 @@
+import Link from 'components/link' // Todo: replace spaces with underscores
+
 export default function Categories({ categories }) {
     return (
         <ul className="categories">
@@ -8,18 +10,12 @@ export default function Categories({ categories }) {
 }
 
 function Category({ label, items }) {
+    const tags = items.map(tag => <li key={tag}><Link href={`${label}/${tag}`}>{ tag }</Link></li>)
     return (
         <>
-            <a href="#">{ label }</a>
-            { items?.length > 0 && <Tags tags={items} /> }
+            <Link href={label}>{ label }</Link>
+            <ul className="tags"></ul>
+            { items?.length > 0 && <ul className="tags">{ tags }</ul> }
         </>
-    )
-}
-
-function Tags({ tags }) {
-    return (
-        <ul className="tags">
-            { tags.map(tag => <li key={tag}><a href="#">{ tag }</a></li>)}
-        </ul>
     )
 }
