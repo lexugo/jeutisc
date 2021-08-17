@@ -4,7 +4,7 @@
   "author": "Hugo Laquerre",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -15,6 +15,9 @@
     "react-dom": "17.x",
     "react-instantsearch-dom": "^6.12.0",
     "sass": "^1.35.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   },
   "repository": {
     "type": "git",
