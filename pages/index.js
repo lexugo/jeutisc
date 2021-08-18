@@ -9,9 +9,9 @@ function Home({ categories }) {
             <header>
               <h1>Jeutisc</h1>
             </header>
-            <form className='search'>
+            <form method='get' action="/search" className='search'>
               <div className="searchBar">
-                <input type="search" />
+                <input name="q" type="search" autoComplete="off" />
               </div>
             </form>
             <Categories categories={categories} />

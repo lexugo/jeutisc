@@ -1,13 +1,15 @@
 import { connectSearchBox } from "react-instantsearch-dom";
 
-function Search({ refine }) {
+function Search({ refine, currentRefinement: query }) {
     return (
-        <form action="" role="search">
+        <form action="/search" role="search">
             <label htmlFor="search">Search articles</label>
             <input
                 id='search'
                 type='search'
-                onChange={(e) => refine(e.currentTarget.value)}
+                name='q'
+                value={query}
+                onChange={({ target: { value }}) => refine(value)}
             />
         </form>
     )
