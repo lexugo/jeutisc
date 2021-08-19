@@ -1,10 +1,12 @@
 import { getCategories, getTags } from 'services/algolia'
 
+import Search from 'components/search'
+
 export default function Category({ category, tags }) {
     return (
         <div>
             <h1>{ category }</h1>
-            <ul>{ tags.map(tag => <li>{ tag }</li>) }</ul>
+            <Search category={category} />
         </div>
     ) 
 }

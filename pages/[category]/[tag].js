@@ -1,7 +1,14 @@
 import { getFacets } from 'services/algolia'
 
+import Search from 'components/search'
+
 export default function Tag({ category, tag }) {
-    return <h1>{ category } · { tag }</h1>
+    return (
+        <div>
+            <h1>{ category } / { tag }</h1>
+            <Search category={category} tag={tag} />
+        </div>
+    )
 }
 
 export async function getStaticProps({ params: { category, tag }}) {
