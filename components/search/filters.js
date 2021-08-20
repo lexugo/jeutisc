@@ -7,5 +7,5 @@ export default function Filters({ category, tag }) {
     if (category)
         return <Configure filters={`category:${category}`} />
     
-    return undefined
+    return null
 }
