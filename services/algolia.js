@@ -6,7 +6,7 @@ const ressources = client.initIndex("Ressource")
 export async function getCategories() {
     const { facetHits: categories } = await ressources.searchForFacetValues('category')
     
-    return categories.map(category => category.value)
+    return categories.map(category => category.value.toLowerCase())
 }
 
 export async function getTags(category) {
@@ -14,7 +14,7 @@ export async function getTags(category) {
         filters: `category:"${category ?? '*'}"` 
     })
 
-    return tags.map(tag => tag.value)
+    return tags.map(tag => tag.value.toLowerCase())
 }
 
 export async function getFacets() { // Todo: rename

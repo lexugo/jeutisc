@@ -20,8 +20,13 @@ function Search({ category, tag }) {
             onSearchStateChange={({ query }) => setQuery(query)}
             searchState={{query}}
         >
-            <Filters category={category} tag={tag} />
-            <Input />
+            <header>
+                <div className="logo">
+                    <h1><a href="/">Jeutisc</a></h1>
+                </div>
+                <Input />
+                <Filters category={category} tag={tag} />
+            </header>
             <Hits />
         </InstantSearch>
     )

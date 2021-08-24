@@ -7,10 +7,10 @@ function Hits({ searchResults: results }) {
         return <p>No results found :(</p>
     
     return (
-        <ol>
+        <div className="ressources">
             { results.hits.map(({ objectID: id, ...props }) => 
-                <li key={id}><Hit {...props} /></li>) }
-        </ol>
+                <Hit key={id} {...props} />)}
+        </div>
     )
 }
 
