@@ -1,14 +1,13 @@
 import { getCategories, getTags } from 'services/algolia'
 
-import Search from 'components/search'
+import InstantSearch from 'components/search'
 
 export default function Category({ category, tags }) {
     return (
-        <div>
-            <h1>{ category }</h1>
-            <Search category={category} />
-        </div>
-    ) 
+        <main className="search">
+            <InstantSearch category={category} />
+        </main>
+    )
 }
 
 export async function getStaticProps({ params: { category }}) {

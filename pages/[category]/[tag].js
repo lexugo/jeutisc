@@ -1,13 +1,12 @@
 import { getFacets } from 'services/algolia'
 
-import Search from 'components/search'
+import InstantSearch from 'components/search'
 
 export default function Tag({ category, tag }) {
     return (
-        <div>
-            <h1>{ category } / { tag }</h1>
-            <Search category={category} tag={tag} />
-        </div>
+        <main className="search">
+            <InstantSearch category={category} tag={tag} />
+        </main>
     )
 }
 

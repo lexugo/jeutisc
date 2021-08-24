@@ -2,8 +2,7 @@ import { connectSearchBox } from "react-instantsearch-dom";
 
 function Search({ refine, currentRefinement: query }) {
     return (
-        <form action="/search" role="search">
-            <label htmlFor="search">Search articles</label>
+        <form action="/search" role="search" className="search">
             <input
                 id='search'
                 type='search'

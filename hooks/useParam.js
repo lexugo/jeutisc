@@ -5,7 +5,7 @@ export default function useParam(parameter) {
 
     function toUrl(value) {
         if (value)
-            return { query: { ...query, [parameter]: value }} 
+            return { pathname, query: { ...query, [parameter]: value }} 
         
         const { [parameter]: _, ...params } = query // Remove param form url when undefined
         return { pathname, query: params }
