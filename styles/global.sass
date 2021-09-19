@@ -29,7 +29,6 @@ a
     text-decoration: inherit
     color: inherit
 
-
 #__next // app
     min-height: 100vh
     display: grid
@@ -103,15 +102,6 @@ a
                     padding: 12px 1.2em
                     border: none
                     background-color: #0B10E114
-
-                    &:after
-                      content: "test"
-                      width: 24px
-                      height: 24px
-                      background-color: #0B10E1
-                      z-index: 2
-                      position: relative
-                      top: 10px
             
             .by.categories,
             .by.subcategories
@@ -126,14 +116,6 @@ a
                 .subcategories
                     margin-top: 2px
 
-                .category // Todo: Add icon
-                    font-family: 'Roboto', sans-serif
-                    font-weight: 500
-
-                    border-radius: 24px
-                    background-color: #0B10E114 // Todo: different colors
-                    padding: 12px 1.2em
-
             .by.media,
             .by.tags
                 .media.types,
@@ -142,23 +124,6 @@ a
                     flex-flow: row wrap
                     gap: .9em
 
-                .media.type,
-                .tag
-                    display: block
-                    border-radius: 24px
-                    background-color: #0B10E114 // Todo: different colors
-                    padding: 12px 1.2em
-                    font-family: 'Roboto', sans-serif
-                    font-weight: 500
-                    font-size: .9em
-
-                    input // Todo: style checkbox
-                        margin-left: .5em
-            
-            .tag
-                input
-                    display: none
-
             >footer
                 margin-top: auto
                 margin-bottom: 1em
@@ -166,25 +131,40 @@ a
                 display: flex
                 justify-content: space-between
                 gap: .9em
-
-                button
-                    border-radius: 24px
-                    background-color: #0B10E114 // Todo: different colors
-                    padding: 12px 1.2em
-                    font-family: 'Roboto', sans-serif
-                    font-weight: 500
-                    font-size: .9em
-                    border: none
                 
                 #submit
                     width: 100%
                     background-color: #0B10E1
                     color: white
 
+.tag
+    input
+        &:checked
+            &+label
+                background-color: red
 
-.tag,
-.category,
-.media.type
-    &.selected
-        background-color: #0B10E1 !important // Todo: different colors
-        color: white
+main > form
+    font-size: .9em
+    font-family: 'Roboto', sans-serif
+    font-weight: 500
+
+    .tag,
+    .media.type
+        input
+            display: none
+
+    .category, // Todo: Add icon
+    .media.type > input + label,
+    .tag > input + label,
+    > footer button
+        display: inline-block
+        border-radius: 24px
+        background-color: #0B10E114 // Todo: different colors
+        padding: 12px 1.2em
+        border: none
+
+    .media.type,
+    .tag
+        > input:checked + label
+            background-color: #0B10E1 !important // Todo: different colors
+            color: white
