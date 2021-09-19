@@ -26,7 +26,7 @@ function Home({ categories }) {
               <nav className='categories'>
                 <a href='#' className='category'>Réalités Autochtones</a>
                 <a href='#' className='category'>Environement</a>
-                <a href='#' className='category'>Immigration</a>
+                <a href='#' className='selected category'>Immigration</a>
                 <a href='#' className='category'>Environement</a>
                 <a href='#' className='category'>
                   Racism
@@ -45,55 +45,53 @@ function Home({ categories }) {
             <div className='by media'>
               <h2>I prefer to see</h2>
               <div className='media types'>
-                <label className='selected media type'> 
-                  All {/* Todo: Only visible with scripts */}
-                  <input type='checkbox' name='all' checked />
-                </label>
-                <label className='media type'>
-                  Videos
-                  <input type='checkbox' name='video'/>
-                </label>
-                <label className='media type'>
-                  Podcasts
-                  <input type='checkbox' name='podcast'/>
-                </label>
-                <label className='media type'>
-                  Videos
-                  <input type='checkbox' name='video'/>
-                </label>
-                <label className='media type'>
-                  Podcasts
-                  <input type='checkbox' name='podcast'/>
-                </label>
+                <div className='tag'>
+                  {/* Todo: Only visible with scripts */}
+                  <input id='all' type='checkbox' name='all' checked='checked'/>
+                  <label htmlFor='all'>All</label>
+                </div>
+                <div className='tag'>
+                  <input type='checkbox' name='videos' id='videos'/>
+                  <label htmlFor='videos'>Videos</label>
+                </div>
+                <div className='tag'>
+                  <input type='checkbox' name='podcasts' id='podcasts'/>
+                  <label htmlFor='podcasts'>Podcasts</label>
+                </div>
+                <div className='tag'>
+                  <input type='checkbox' name='test' id='test'/>
+                  <label htmlFor='test'>Test</label>
+                </div>
+                <div className='tag'>
+                  <input type='checkbox' name='text' id='text'/>
+                  <label htmlFor='text'>Text</label>
+                </div>
+
               </div>
             </div>
             <div className='by tags'>
               <h2>I'm interested in</h2>
               <div className='tags'>
-                <label className='tag'>
-                  Canada
-                  <input type='checkbox' name='canada'/>
-                </label>
-                <label className='tag'>
-                  Pensionnats autochtones
-                  <input type='checkbox' name='pensionnats'/>
-                </label>
-                <label className='tag'>
-                  Justice climatique
-                  <input type='checkbox' name='climat'/>
-                </label>
-                <label className='selected tag'>
-                  Crise climatique
-                  <input type='checkbox' name='crise'/>
-                </label>
-                <label className='selected tag'>
-                  Racisme environnental
-                  <input type='checkbox' name='unsure'/>
-                </label>
-                <label className='tag'>
-                  Pratique inclusive
-                  <input type='checkbox' name='inclusivité'/>
-                </label>
+                <div className='tag'>
+                  <input id='canada' type='checkbox' name='canada' />
+                  <label htmlFor='canada'>Canada</label>
+                </div>
+                <div className='tag'>
+                  <input id='pensionnats' type='checkbox' name='pensionnats' />
+                  <label htmlFor='pensionnats'>Pensionnats autochtones</label>
+                </div>
+                <div className='tag'>
+                  <input id='climat' type='checkbox' name='climat' />
+                  <label htmlFor='climat'>Justice climatique</label>
+                </div>
+                <div className='tag'>
+                  <input id='unsure' type='checkbox' name='unsure' />
+                  <label htmlFor='unsure'>Racisme environnental</label>
+                </div>
+                <div className='tag'>
+                  <input id='inclusivité' type='checkbox' name='inclusivité' />
+                  <label htmlFor='inclusivité'>Pratique inclusive</label>
+                </div>
               </div>
             </div>
             <footer>
