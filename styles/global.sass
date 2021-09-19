@@ -103,15 +103,12 @@ a
                     border: none
                     background-color: #0B10E114
             
-            .by.categories,
-            .by.subcategories
+            .by.categories
                 .categories,
                 .subcategories
                     display: flex
                     flex-flow: row wrap
                     gap: .9em
-
-                    font-size: .9em
 
                 .subcategories
                     margin-top: 2px
@@ -144,16 +141,18 @@ a
                 background-color: red
 
 main > form
-    font-size: .9em
+    font-size: .82em
     font-family: 'Roboto', sans-serif
     font-weight: 500
 
     .tag,
-    .media.type
+    .media.type,
+    .category
         input
             display: none
 
     .category, // Todo: Add icon
+    .subcategory > input + label,
     .media.type > input + label,
     .tag > input + label,
     > footer button
@@ -163,8 +162,15 @@ main > form
         padding: 12px 1.2em
         border: none
 
+    .subcategory,
     .media.type,
     .tag
         > input:checked + label
             background-color: #0B10E1 !important // Todo: different colors
-            color: white
+            color: white !important
+
+.category .subcategories
+    display: none !important
+
+.category > input:checked ~ .subcategories
+    display: flex !important
