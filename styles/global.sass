@@ -113,13 +113,18 @@ a
                       position: relative
                       top: 10px
             
-            .by.categories
-                nav
+            .by.categories,
+            .by.subcategories
+                .categories,
+                .subcategories
                     display: flex
                     flex-flow: row wrap
                     gap: .9em
 
                     font-size: .9em
+
+                .subcategories
+                    margin-top: 2px
 
                 .category // Todo: Add icon
                     font-family: 'Roboto', sans-serif
@@ -149,10 +154,6 @@ a
 
                     input // Todo: style checkbox
                         margin-left: .5em
-
-                    &.selected
-                        background-color: #0B10E1
-                        color: white
             
             .tag
                 input
@@ -181,6 +182,9 @@ a
                     color: white
 
 
-
-
-
+.tag,
+.category,
+.media.type
+    &.selected
+        background-color: #0B10E1 !important // Todo: different colors
+        color: white
