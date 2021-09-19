@@ -28,7 +28,16 @@ function Home({ categories }) {
                 <a href='#' className='category'>Environement</a>
                 <a href='#' className='category'>Immigration</a>
                 <a href='#' className='category'>Environement</a>
-                <a href='#' className='category'>Racism</a>
+                <a href='#' className='category'>
+                  Racism
+                  <nav className='subcategories'>
+                    <a href='#' className='category'>Test</a>
+                    <a href='#' className='category'>Crise Climatique</a>
+                    <a href='#' className='category'>Fin du monde</a>
+                    <a href='#' className='category'>Réalités Autochtones</a>
+                    <a href='#' className='category'>Sexualité</a>
+                  </nav>
+                </a>
                 <a href='#' className='category'>Feminisme</a>
                 <a href='#' className='category'>Réalités Autochtones</a>
               </nav>
