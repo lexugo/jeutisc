@@ -19,7 +19,7 @@ function Home({ categories }) {
           <form className='search'>
             <div className='by query'>
               <h2>I have a question about</h2>
-              <input name='q' type='search' placeholder='Racism'/>
+              <input name='q' type='search' placeholder='Racism' autoComplete='off'/>
             </div>
             <div className='by categories'>
               <h2>I want to understand more about</h2>
@@ -59,6 +59,10 @@ function Home({ categories }) {
                     <a href='#' className='subcategory'>
                       <input type='radio' id='44' name='subcategory' value='Sexualité'/>
                       <label htmlFor='44'>Sexualité</label>
+                    </a>
+                    <a href='#' className='subcategory'>
+                      <input type='radio' id='55' name='subcategory' value='Réalités Autochtones'/>
+                      <label htmlFor='55'>Réalités Autochtones</label>
                     </a>
                   </div>
                 </a>
