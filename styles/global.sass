@@ -34,6 +34,7 @@ a
     min-height: 100vh
     display: grid
     grid-template-rows: 1fr auto 1fr
+    place-items: center
 
     background-color: #0B10E1
 
@@ -51,7 +52,6 @@ a
     
     >footer
         color: white
-        place-self: center
         font-family: 'Roboto', sans-serif
         font-weight: 400
         font-size: .9em
@@ -115,6 +115,7 @@ a
             padding: 12px 1.2em
             border: none
             background-color: #0B10E114
+            outline: none
     
     .by.categories
         .categories,
@@ -162,7 +163,7 @@ a
         display: none !important
 
     .category > input:checked ~ .subcategories
-        display: flex !important
+            display: flex !important
 
     >footer
         margin-top: auto
@@ -180,16 +181,13 @@ a
 
 // Ressources
 .ressources
-    display: none
+    display: flex
     flex-direction: column
-    // gap: 1.6em
 
     font-family: 'Roboto', sans-serif
     font-weight: 400
     font-size: .9em
-    margin-bottom: 1em
-
-    // margin: 1em
+    margin-bottom: 21px
 
 .ressource
     padding: 1.2em 1.6em
@@ -197,12 +195,6 @@ a
     display: flex
     flex-direction: column
     gap: .2em
-
-    // width: 30vw
-    // border-radius: 12px
-    // box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px   
-    // &:hover
-    //     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px
 
     .title
         font-weight: 600
@@ -227,7 +219,7 @@ a
 // Desktop
 @media screen and (min-width: 900px)
     #__next // app
-        background: white
+        background: linear-gradient(115deg, rgba(255,255,255,1) 0%, rgba(252,250,253,1) 100%)
         
         > header
             justify-self: center
@@ -238,7 +230,10 @@ a
         > main
             grid-template-rows: 100%
             grid-template-columns: 1fr 1fr
-            gap: 2em
+            grid-template-areas: 'left right'
+            gap: 7em
+            max-width: 75vw
+            background: none
 
             > header
                 display: none
@@ -247,11 +242,46 @@ a
                 footer
                     display: none
 
-                &:after
-                    content: ''
-                    background-color: #0B10E1
+                // &:after
+                //     content: ''
+                //     background-color: #0B10E1
 
-                    position: absolute
-                    left: 50vw
-                    height: 100%
-                    width: 3px
+                //     position: absolute
+                //     left: calc(50vw - 8px)
+                //     height: 100%
+                //     width: 4px
+
+    .search
+        grid-area: right
+
+        .by.query
+            width: 560px
+
+        .query input,
+        .category,
+        .subcategory label,
+        .media.type label,
+        .tag label
+            background-color: white !important
+            border: 1px solid rgba(0, 0, 0, 0.05) !important
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px   
+
+        .media.type label:hover,
+        .media.type > input:checked + label,
+        .tag label:hover,
+        .tag > input:checked + label
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px
+
+    .ressources
+        gap: 1.6em
+        grid-area: left
+        align-items: flex-end
+
+    .ressource
+        width: 560px
+        background-color: white
+
+        border-radius: 12px
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px   
+        &:hover
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px
