@@ -1,19 +1,19 @@
 import { useRouter } from "next/router"
 
-export default function useParam(parameter) {
+export default function useParam(name, value) {
     const { query, pathname, replace } = useRouter()
 
     function toUrl(value) {
         if (value)
-            return { pathname, query: { ...query, [parameter]: value }} 
+            return { pathname, query: { ...query, [name]: value }}
         
-        const { [parameter]: _, ...params } = query // Remove param form url when undefined
+        const { [name]: _, ...params } = query // Remove param form url when undefined
         return { pathname, query: params }
     }
 
     function set(value) {
-        replace(toUrl(value), undefined, { shallow: true })
+        return replace(toUrl(value), undefined, { shallow: true })
     }
 
-    return [query[parameter], set]
+    return [query[name], set]
 }

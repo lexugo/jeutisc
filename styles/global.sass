@@ -179,8 +179,8 @@ a
             color: white
 
 
-// Ressources
-.ressources
+// Resources
+.resources
     display: flex
     flex-direction: column
 
@@ -189,7 +189,7 @@ a
     font-size: .9em
     margin-bottom: 21px
 
-.ressource
+.resource
     padding: 1.2em 1.6em
 
     display: flex
@@ -207,6 +207,11 @@ a
         display: inline-block
 
     .media
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        width: 80%
+
         .type
             font-weight: 00
             color: #0B10E1
@@ -259,7 +264,7 @@ a
                     display: none
 
     .search,
-    .ressources
+    .resources
         width: 50vw
         max-width: 600px
 
@@ -343,11 +348,11 @@ a
             .description
                 color: #00000072
 
-    .ressources
+    .resources
         gap: 1.6em
         grid-area: main
 
-    .ressource
+    .resource
         background-color: white
 
         border-radius: 12px
