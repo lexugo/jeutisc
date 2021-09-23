@@ -1,5 +1,6 @@
-import InstantSearch from 'components/search'
+import Layout from 'components/layout'
+import Search from 'components/search'
 
-export default function Search() {
-  return <main className="search"><InstantSearch /></main> 
+export default function SerachPage() {
+	return <Layout><Search /></Layout>
 }
