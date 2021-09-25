@@ -70,12 +70,51 @@ function Home() {
 				</div>
 				<div className="by categories">
 					<div className="categories">
-						<div className="category">
-							<h3 className="title">Réalités Autochtones</h3>
-							<p className="description">
-								Le terme <i>Autochtone</i> désigne une diversité
-								de nations et de peuples.
-							</p>
+						<div className="selected category">
+							<header>
+								<h3 className="title">Réalités Autochtones</h3>
+								<p className="description">
+									Le terme <i>Autochtone</i> désigne une diversité
+									de nations et de peuples.
+								</p>
+							</header>
+							<div className="subcategories">
+								<div className="subcategory">
+									<h3 className="title">Fin du monde</h3>
+									<p className="description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit.
+									</p>
+								</div>
+								<div className="subcategory">
+									<h3 className="title">Fin du monde</h3>
+									<p className="description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit.
+									</p>
+								</div>
+								<div className="subcategory">
+									<h3 className="title">Fin du monde</h3>
+									<p className="description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit.
+									</p>
+								</div>
+								<div className="subcategory">
+									<h3 className="title">Fin du monde</h3>
+									<p className="description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit.
+									</p>
+								</div>
+								<div className="subcategory">
+									<h3 className="title">Fin du monde</h3>
+									<p className="description">
+										Lorem ipsum dolor sit amet consectetur
+										adipisicing elit.
+									</p>
+								</div>
+							</div>
 						</div>
 						<div className="category">
 							<h3 className="title">Réalités Autochtones</h3>
