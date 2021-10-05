@@ -1,6 +1,8 @@
 import { useCategories } from 'hooks/useSearch'
 
+import { Configure } from 'react-instantsearch-dom'
 import Link from 'components/link'
+import useParam from '../../../hooks/useParam'
 
 function Categories() {
 	const categories = useCategories()

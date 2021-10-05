@@ -1,4 +1,4 @@
-import Checkbox from 'components/checkbox'
+import Checkbox from 'components/form/checkbox'
 
 import { refined } from 'components/search/by/refinement'
 
@@ -8,7 +8,7 @@ function Types({ items: types, refine, currentRefinement: refinements }) {
 			<div className='media types'>
 				<Type label='all' value='' isRefined={!refinements.length} onChange={() => refine('')} />
 				{ types.map(type =>
-					<Type key={type.label} {...type} onChange={() => refine(type.value)} />)
+					<Type key={type.label} {...type} onChange={() => refine(type.value)}  />)
 				}
 			</div>
 		</div>
