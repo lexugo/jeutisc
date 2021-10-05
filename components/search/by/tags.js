@@ -1,6 +1,9 @@
 import useParam from 'hooks/useParam'
 
-export default function Tags() {
+import { refined } from 'components/search/by/refinement'
+import Checkbox from '../../form/checkbox'
+
+function Tags({ items: tags, refine, currentRefinement: refinements }) {
 	const [category] = useParam('category')
 	const [subcategory] = useParam('subcategory')
 
@@ -14,166 +17,21 @@ export default function Tags() {
 				</p>
 			</header>
 			<div className="tags">
-				<div className="tag">
-					<input
-						type="checkbox"
-						id="canada"
-						name="tags"
-						value="canda"
-					/>
-					<label htmlFor="canada">Canada</label>
-				</div>
-				<div className="tag">
-					<input
-						id="pensionnats"
-						type="checkbox"
-						name="tags"
-						value="pensionats"
-					/>
-					<label htmlFor="pensionnats">
-						Pensionnats autochtones
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="climat"
-						type="checkbox"
-						name="tags"
-						value="justice"
-					/>
-					<label htmlFor="climat">
-						Justice climatique
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="unsure"
-						type="checkbox"
-						name="tags"
-						value="racisme"
-					/>
-					<label htmlFor="unsure">
-						Racisme environnental
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="inclusivité"
-						type="checkbox"
-						name="tags"
-						value="pratique inclusive"
-					/>
-					<label htmlFor="inclusivité">
-						Pratique inclusive
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						type="checkbox"
-						id="canada"
-						name="tags"
-						value="canda"
-					/>
-					<label htmlFor="canada">Canada</label>
-				</div>
-				<div className="tag">
-					<input
-						id="pensionnats"
-						type="checkbox"
-						name="tags"
-						value="pensionats"
-					/>
-					<label htmlFor="pensionnats">
-						Pensionnats autochtones
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="climat"
-						type="checkbox"
-						name="tags"
-						value="justice"
-					/>
-					<label htmlFor="climat">
-						Justice climatique
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="unsure"
-						type="checkbox"
-						name="tags"
-						value="racisme"
-					/>
-					<label htmlFor="unsure">
-						Racisme environnental
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="inclusivité"
-						type="checkbox"
-						name="tags"
-						value="pratique inclusive"
-					/>
-					<label htmlFor="inclusivité">
-						Pratique inclusive
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						type="checkbox"
-						id="canada"
-						name="tags"
-						value="canda"
-					/>
-					<label htmlFor="canada">Canada</label>
-				</div>
-				<div className="tag">
-					<input
-						id="pensionnats"
-						type="checkbox"
-						name="tags"
-						value="pensionats"
-					/>
-					<label htmlFor="pensionnats">
-						Pensionnats autochtones
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="climat"
-						type="checkbox"
-						name="tags"
-						value="justice"
-					/>
-					<label htmlFor="climat">
-						Justice climatique
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="unsure"
-						type="checkbox"
-						name="tags"
-						value="racisme"
-					/>
-					<label htmlFor="unsure">
-						Racisme environnental
-					</label>
-				</div>
-				<div className="tag">
-					<input
-						id="inclusivité"
-						type="checkbox"
-						name="tags"
-						value="pratique inclusive"
-					/>
-					<label htmlFor="inclusivité">
-						Pratique inclusive
-					</label>
-				</div>
+				{ tags.map(tag => <Tag key={tag.label} {...tag} onChange={() => refine(tag.value)} />)}
 			</div>
 		</div>
 	)
 }
+
+function Tag({ label, value, isRefined, onChange }) {
+	return <Checkbox
+		name='tags'
+		label={label}
+		value={value}
+		checked={isRefined}
+		onChange={onChange}
+		className='tag'
+	/>
+}
+
+export default refined(Tags, 'tags')

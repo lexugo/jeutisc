@@ -1,4 +1,4 @@
-import { connectSearchBox } from 'react-instantsearch-dom'
+import { connectSearchBox } from "react-instantsearch-dom";
 
 function Query({ refine, currentRefinement: query }) {
 	return (
@@ -15,4 +15,4 @@ function Query({ refine, currentRefinement: query }) {
 	)
 }
 
-export default connectSearchBox(Query);
+export default connectSearchBox(Query)

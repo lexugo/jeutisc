@@ -1,6 +1,7 @@
 import useParam from 'hooks/useParam'
 import { useSubcategories } from 'hooks/useSearch'
 import Link from '../../link'
+import { Configure } from 'react-instantsearch-dom'
 
 export default function Subcategories() {
 	const [category] = useParam('category')

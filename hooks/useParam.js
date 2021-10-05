@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 
 export default function useParam(name, value) {
-    const { query, pathname, replace } = useRouter()
+    const { query, pathname, replace, push } = useRouter()
 
     function toUrl(value) {
         if (value)
@@ -11,9 +11,9 @@ export default function useParam(name, value) {
         return { pathname, query: params }
     }
 
-    function set(value) {
-        return replace(toUrl(value), undefined, { shallow: true })
-    }
-
-    return [query[name], set]
+    return [
+        query[name],
+        value => replace(toUrl(value), undefined, { shallow: true }),
+        value => push(toUrl(value), undefined, { shallow: true })
+    ]
 }

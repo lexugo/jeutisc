@@ -1,8 +1,4 @@
-import { useState } from 'react'
-
-function Checkbox({ label, value, name, checked, onChange, className }) {
-	// const [checked, setChecked] = useState(false)
-
+export default function Checkbox({ label, value, name, checked, onChange, className }) {
 	return (
 		<div className={className}>
 			<input
@@ -17,5 +13,3 @@ function Checkbox({ label, value, name, checked, onChange, className }) {
 		</div>
 	)
 }
-
-export default Checkbox
