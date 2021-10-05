@@ -7,9 +7,8 @@ import MediaTypes from 'components/search/by/type'
 import Categories from 'components/search/by/category'
 import Subcategories from 'components/search/by/subcategory'
 import Tags from 'components/search/by/tags'
-import useParam from '../../hooks/useParam'
-import Tag from '../../backup/[category]/[tag]'
 
+import useParam from '../../hooks/useParam'
 
 // Todo: move algoliaSearch to context
 const searchClient = algoliasearch('RI142KT8JI', '025962cc3a90d4f60d0aba72b1b312ed')
