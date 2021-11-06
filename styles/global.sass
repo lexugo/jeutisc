@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700;900&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
 
+@import 'variables'
+
 body, html, *
     margin: 0
     padding: 0
 
 // Clear
 input
-  &[type="search"]
+  &[type='search']
     &::-webkit-search-decoration,
     &::-webkit-search-cancel-button,
     &::-webkit-search-results-button,
@@ -21,7 +23,7 @@ input
       width: 0
       height: 0
 
-ul, 
+ul,
 ol
     list-style-type: none
 
@@ -34,9 +36,8 @@ a
     min-height: 100vh
     display: grid
     grid-template-rows: 1fr auto 1fr
-    // place-items: center
 
-    background-color: #0B10E1
+    background-color: $dark
 
     >header
         h1
@@ -102,7 +103,7 @@ a
 
 // Search
 .search
-    font-size: .82em
+    font-size: .9em
     font-family: 'Roboto', sans-serif
     font-weight: 500
 
@@ -114,9 +115,18 @@ a
             border-radius: 24px
             padding: 12px 1.2em
             border: none
-            background-color: #0B10E114
             outline: none
-    
+            background: gradiant()
+            color: $light
+            max-width: 560px
+
+            &[value=""]
+                background: none
+                background-color: #0B10E114
+
+            &::placeholder
+                color: $faded-text
+
     .by.categories
         .categories,
         .subcategories
@@ -146,8 +156,10 @@ a
     .media.type > input + label,
     .tag > input + label,
     > footer button
-        display: inline-block
+        display: flex
         border-radius: 24px
+        text-transform: capitalize
+        color: $faded-text !important
         background-color: #0B10E114 // Todo: different colors
         padding: 12px 1.2em
         border: none
@@ -155,9 +167,37 @@ a
     .subcategory,
     .media.type,
     .tag
+        @for $i from 1 through 20
+            &:nth-child(#{$i})
+                > input:checked + label
+                    background: gradiant($i)
+
         > input:checked + label
-            background-color: #0B10E1 !important // Todo: different colors
-            color: white !important
+            color: $light !important
+            background: $yellow
+
+            &:after
+                content: ''
+                display: inline-block
+                background-image: url('/icons/xmark-solid.svg')
+                background-repeat: no-repeat
+                background-blend-mode: color
+                height: 1.2em
+                width: 1.2em
+                margin-left: 1em
+                align-self: center
+
+        > input:not(:checked) + label
+            &:after
+                content: ''
+                display: inline-block
+                background-image: url('/icons/check-solid.svg')
+                background-repeat: no-repeat
+                background-blend-mode: color
+                height: 1.2em
+                width: 1.2em
+                margin-left: 1em
+                align-self: center
 
     .category .subcategories
         display: none !important
@@ -172,7 +212,7 @@ a
         display: flex
         justify-content: space-between
         gap: .9em
-        
+
         #submit
             width: 100%
             background-color: #0B10E1
@@ -216,7 +256,7 @@ a
             font-weight: 00
             color: #0B10E1
             margin-right: .5em
-        
+
         a
             color: #00000050
 
@@ -224,9 +264,6 @@ a
 // Desktop
 @media screen and (min-width: 900px)
     #__next // app
-        // padding-left: 5vw
-        background: linear-gradient(115deg, rgba(255,255,255,1) 0%, rgba(252,250,253,1) 100%)
-
         grid-template-rows: min-content min-content auto min-content
         grid-template-columns: max(120px, 10vw) auto
         grid-template-areas: 'logo header' 'space main' 'space footer'
@@ -237,9 +274,6 @@ a
             grid-area: logo
             justify-self: center
             padding: 0
-
-            h1
-                color: black
         
         > footer
             color: black
@@ -271,10 +305,10 @@ a
     .search
         grid-area: header
         align-self: center
-        
+
         display: grid
         grid-template-rows: auto auto
-        gap: .6em
+        gap: .9em
 
         h2
             display: none
@@ -283,17 +317,17 @@ a
         .category,
         .media.type label,
         .tag label
-            background-color: white !important
-            border: 1px solid rgba(0, 0, 0, 0.08) !important
+            background-color: $faded !important
+            //border: 1px solid rgba(0, 0, 0, 0.08) !important
 
-        .category:hover,
-        .by.subcategories:hover,
-        .subcategory:hover,
-        .media.type label:hover,
-        .media.type > input:checked + label,
-        .tag label:hover,
-        .tag > input:checked + label
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px
+        //.category:hover,
+        //.by.subcategories:hover,
+        //.subcategory:hover,
+        //.media.type label:hover,
+        //.media.type > input:checked + label,
+        //.tag label:hover,
+        //.tag > input:checked + label
+        //    //box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px
 
         .media.type label
             padding: .62em 1.2em !important
@@ -318,7 +352,7 @@ a
 
             .description
                 font-weight: 400
-                color: #00000072
+                color: $faded-text
 
         .category.selected
             position: absolute
@@ -331,8 +365,8 @@ a
         .by.subcategories,
         .by.tags
             border-radius: 12px
-            background-color: white
-            border: 1px solid rgba(0, 0, 0, 0.08) !important
+            background-color: $light
+            //border: 1px solid rgba(0, 0, 0, 0.08) !important
             padding: 12px 1.2em
 
             h2,
@@ -356,7 +390,7 @@ a
                 flex: 1 0 40%
 
             .description
-                color: #00000072
+                color: $faded-text
 
     .resources
         gap: 1.6em
@@ -366,6 +400,6 @@ a
         background-color: white
 
         border-radius: 12px
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px   
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px
         &:hover
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px

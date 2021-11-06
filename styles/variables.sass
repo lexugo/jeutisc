@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
+
+// Fonts
+
+
+// Colors
+$light: #fff
+$dark: #313855
+$faded: #485069
+$faded-text: #8d96a7
+
+// Gradients
+@function gradiant($left, $right)
+  @return linear-gradient(90deg, $left 0%, $right 100%)
+
+$yellow: gradiant(#fea85e, #edcaa8)
+$green: gradiant(#5bd676, #b2debb)
+$orange: gradiant(#fd7861, #e4b6ac)
+$pink: gradiant(#fe6a93, #edbdcb)
+$blue: gradiant(#82c4fe, #daeafe)
+$red: gradiant(#fe8384, #fed6d6)
+$purple: gradiant(#a08cfd, #c3b6fe)
+
+$gradiants: $yellow, $green, $orange, $pink, $blue, $red, $purple
+
+@function gradiant($seed: random(7))
+  $nth: ($seed % 7) + 1
+  @return nth($gradiants, $nth)

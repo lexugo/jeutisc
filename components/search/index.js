@@ -27,9 +27,9 @@ export default function Search() {
 					<Config category={category} subcategory={subcategory} />
 					<Input />
 					<MediaTypes />
-					{ category ? subcategory ? <Tags /> : <Subcategories /> : <Categories /> }
+					{/*{ category ? subcategory ? <Tags /> : <Subcategories /> : <Categories /> }*/}
 				</form>
-				<Results />
+				{/*<Results />*/}
 			</InstantSearch>
 		</>
 
