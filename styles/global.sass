@@ -108,24 +108,46 @@ a
     font-weight: 500
 
     .by.query
-        input // Todo: search circle button on the right
-            font-family: 'Roboto', sans-serif
-            font-weight: 500
-            width: 100%
-            border-radius: 24px
-            padding: 12px 1.2em
-            border: none
-            outline: none
+        display: flex
+        //flex-direction: row-reverse
+        align-items: center
+
+        border-radius: 24px
+        background: $faded
+
+        &.refined
             background: gradiant()
-            color: $light
-            max-width: 560px
 
-            &[value=""]
-                background: none
-                background-color: #0B10E114
+        input
+            &[type='search']
+                font-family: 'Roboto', sans-serif
+                font-weight: 500
+                width: 100%
+                padding: 12px 1.2em
+                border: none
+                outline: none
+                background: none !important
+                color: $light
+                max-width: 560px
 
-            &::placeholder
-                color: $faded-text
+                &::placeholder
+                    color: $faded-text
+
+            &[type='submit'],
+            &[type='reset']
+                color: transparent
+                width: 1.5em
+                height: 1.5em
+                outline: none
+                border: none
+                margin: 0 1em
+
+            &[type='submit']
+                display: none
+                background: url('/icons/magnifying-glass-solid.svg') no-repeat center !important
+
+            &[type='reset']
+                background: url('/icons/xmark-solid.svg') no-repeat center !important
 
     .by.categories
         .categories,
