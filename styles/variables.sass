@@ -22,8 +22,8 @@ $blue: gradiant(#82c4fe, #daeafe)
 $red: gradiant(#fe8384, #fed6d6)
 $purple: gradiant(#a08cfd, #c3b6fe)
 
-$gradiants: $yellow, $green, $orange, $pink, $blue, $red, $purple
+$gradiants: $yellow, $green, $orange, $pink, $blue, $purple
 
-@function gradiant($seed: random(7))
-  $nth: ($seed % 7) + 1
+@function gradiant($seed: random(6))
+  $nth: ($seed % 6) + 1
   @return nth($gradiants, $nth)
