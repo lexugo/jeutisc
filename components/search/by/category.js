@@ -9,6 +9,7 @@ function Categories() {
 
 	return (
 		<div className='by categories'>
+			<p>I want to learn more about</p>
 			<div className='categories'>
 				{ categories?.map(category =>
 					<Category key={category} label={category} onClick={() => console.log('click')} />)
