@@ -45,11 +45,13 @@ a
             color: white
             font-family: 'Source Sans Pro', sans-serif
             font-weight: 700
+            //margin-top: 1em
         
         position: sticky
         top: 0
         z-index: 0
         padding: 1.4em
+        padding-top: 2rem
     
     >footer
         color: white
@@ -106,17 +108,17 @@ a
     font-size: .9em
     font-family: 'Roboto', sans-serif
     font-weight: 500
+    padding-top: 2rem
 
     .by.query
         display: flex
-        //flex-direction: row-reverse
         align-items: center
 
         border-radius: 24px
         background: $faded
 
         &.refined
-            background: gradiant()
+            background-image: gradiant()
 
         input
             &[type='search']
@@ -133,21 +135,14 @@ a
                 &::placeholder
                     color: $faded-text
 
-            &[type='submit'],
             &[type='reset']
+                background: url('/icons/xmark-solid.svg') no-repeat center !important
                 color: transparent
                 width: 1.5em
                 height: 1.5em
                 outline: none
                 border: none
                 margin: 0 1em
-
-            &[type='submit']
-                display: none
-                background: url('/icons/magnifying-glass-solid.svg') no-repeat center !important
-
-            &[type='reset']
-                background: url('/icons/xmark-solid.svg') no-repeat center !important
 
     .by.categories
         .categories,
@@ -245,42 +240,94 @@ a
 .resources
     display: flex
     flex-direction: column
+    gap: .9em
+    grid-area: main
 
     font-family: 'Roboto', sans-serif
     font-weight: 400
     font-size: .9em
     margin-bottom: 21px
 
-.resource
-    padding: 1.2em 1.6em
+    .count
+        color: $faded-text
+        margin-bottom: -.5em
 
-    display: flex
-    flex-direction: column
-    gap: .2em
+.resource
+    padding: 1.6em 1.6em
+    background-color: $faded
+    border-radius: 12px
+
+    display: grid
+    grid-template-columns: auto auto
+
+    &:hover
+        background: gradiant()
+
+        .media .type
+            background: none
+            -webkit-text-fill-color: $faded
+
+        .description
+            color: white
+
+        .media a
+            color: $faded
 
     .title
         font-weight: 600
-        font-size: 1.2em
+        font-size: 1.4em
+        color: $light
+        margin-top: .3em
+        grid-column: 1 / 2
 
     .description
-        color: #00000072
-
-    .source
-        display: inline-block
+        color: $faded-text
+        grid-column: 1 / 2
 
     .media
+        font-size: 1em
         overflow: hidden
         white-space: nowrap
         text-overflow: ellipsis
         width: 80%
+        color: $faded-text
 
         .type
-            font-weight: 00
-            color: #0B10E1
+            font-weight: 600
+            background: gradiant()
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
             margin-right: .5em
+            text-transform: capitalize
 
         a
-            color: #00000050
+            color: $faded-text
+
+    .actions
+        grid-column: 2 / 3
+        grid-row: 1 / 4
+        display: flex
+        flex-direction: column
+        justify-self: end
+        justify-content: space-between
+
+        button
+            border: none
+            width: 1.3em
+            height: 1.3em
+            cursor: pointer
+
+        .bookmark
+            background: url('/icons/bookmark-regular.svg') no-repeat center
+
+        .bookmarked
+            background: url('/icons/bookmark-solid.svg') no-repeat center
+
+        .share
+            background: url('/icons/share-solid.svg') no-repeat center
+
+        .details
+            background: url('/icons/circle-info-solid.svg') no-repeat center
 
 
 // Desktop
@@ -290,12 +337,12 @@ a
         grid-template-columns: max(120px, 10vw) auto
         grid-template-areas: 'logo header' 'space main' 'space footer'
         gap: 2em
-        padding: 2em
+        //padding: 2em
 
         > header
             grid-area: logo
             justify-self: center
-            padding: 0
+            //padding: 0
         
         > footer
             color: black
@@ -413,15 +460,3 @@ a
 
             .description
                 color: $faded-text
-
-    .resources
-        gap: 1.6em
-        grid-area: main
-
-    .resource
-        background-color: white
-
-        border-radius: 12px
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px
-        &:hover
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px

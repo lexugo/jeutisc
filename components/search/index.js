@@ -29,7 +29,7 @@ export default function Search() {
 					<MediaTypes />
 					{/*{ category ? subcategory ? <Tags /> : <Subcategories /> : <Categories /> }*/}
 				</form>
-				{/*<Results />*/}
+				<Results />
 			</InstantSearch>
 		</>
 
