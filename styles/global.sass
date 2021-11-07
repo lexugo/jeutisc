@@ -145,11 +145,19 @@ a
                 margin: 0 1em
 
     .by.categories
+        margin-top: 1.2em
+
+        >p
+            color: $faded-text
+            font-weight: 400
+            margin-bottom: .3em
+
         .categories,
         .subcategories
-            display: flex
-            flex-flow: row wrap
+            display: grid
+            grid-template-columns: 1fr 1fr
             gap: .9em
+            width: 100%
 
         .subcategories
             margin-top: 2px
@@ -337,13 +345,11 @@ a
         grid-template-columns: max(120px, 10vw) auto
         grid-template-areas: 'logo header' 'space main' 'space footer'
         gap: 2em
-        //padding: 2em
 
         > header
             grid-area: logo
             justify-self: center
-            //padding: 0
-        
+
         > footer
             color: black
             grid-area: footer
@@ -387,37 +393,24 @@ a
         .media.type label,
         .tag label
             background-color: $faded !important
-            //border: 1px solid rgba(0, 0, 0, 0.08) !important
-
-        //.category:hover,
-        //.by.subcategories:hover,
-        //.subcategory:hover,
-        //.media.type label:hover,
-        //.media.type > input:checked + label,
-        //.tag label:hover,
-        //.tag > input:checked + label
-        //    //box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px
 
         .media.type label
             padding: .62em 1.2em !important
 
-        .categories
-            gap: 1em !important
-            margin-top: 1em
-            position: relative
-
         .category
-            flex: 1 0 40%
             height: 100px
             border-radius: 12px
 
             display: flex
             flex-direction: column
+            padding: 1.2em
+            gap: .2em
 
             .title
                 font-weight: 600
                 font-size: 1.2em
                 text-transform: capitalize
+                color: $light
 
             .description
                 font-weight: 400
@@ -435,7 +428,6 @@ a
         .by.tags
             border-radius: 12px
             background-color: $light
-            //border: 1px solid rgba(0, 0, 0, 0.08) !important
             padding: 12px 1.2em
 
             h2,
