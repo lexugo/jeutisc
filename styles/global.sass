@@ -2,27 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
 
 @import 'variables'
+@import 'components/form'
 
 body, html, *
     margin: 0
     padding: 0
 
 // Clear
-input
-  &[type='search']
-    &::-webkit-search-decoration,
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-results-button,
-    &::-webkit-search-results-decoration
-      display: none
-
-  &[type=text]
-    &::-ms-clear,
-    &::-ms-reveal
-      display: none
-      width: 0
-      height: 0
-
 ul,
 ol
     list-style-type: none
@@ -90,19 +76,6 @@ a
                     &.focused
                         opacity: 1
 
-        >form
-            display: flex
-            flex-direction: column
-            gap: 2em
-            height: 100%
-
-            h2
-                font-family: 'Roboto', sans-serif
-                font-weight: 600
-                font-size: 1.2em
-
-                margin: 2px 12px
-
 // Search
 .search
     font-size: .9em
@@ -144,7 +117,8 @@ a
                 border: none
                 margin: 0 1em
 
-    .by.categories
+    .by.categories,
+    .by.subcategories
         margin-top: 1.2em
 
         >p
@@ -158,9 +132,6 @@ a
             grid-template-columns: 1fr 1fr
             gap: .9em
             width: 100%
-
-        .subcategories
-            margin-top: 2px
 
     .by.media,
     .by.tags
@@ -177,7 +148,7 @@ a
             display: none
 
     .category, // Todo: Add icon
-    .subcategory > input + label,
+    .subcategory,
     .media.type > input + label,
     .tag > input + label,
     > footer button
@@ -189,7 +160,6 @@ a
         padding: 12px 1.2em
         border: none
 
-    .subcategory,
     .media.type,
     .tag
         @for $i from 1 through 20
@@ -223,6 +193,10 @@ a
                 width: 1.2em
                 margin-left: 1em
                 align-self: center
+        #all
+            &:after
+                content: none !important
+
 
     .category .subcategories
         display: none !important
@@ -261,7 +235,7 @@ a
         margin-bottom: -.5em
 
 .resource
-    padding: 1.6em 1.6em
+    padding: 1.6em 1.6em 1.2em
     background-color: $faded
     border-radius: 12px
 
@@ -280,6 +254,10 @@ a
 
         .media a
             color: $faded
+
+        .tags .tag
+            color: $faded
+            border-color: $faded
 
     .title
         font-weight: 600
@@ -337,6 +315,29 @@ a
         .details
             background: url('/icons/circle-info-solid.svg') no-repeat center
 
+    .tags
+        display: flex
+        gap: .9em
+        margin-top: 1em
+        align-items: center
+
+        .tag
+            text-transform: capitalize
+            padding: .62em 1.2em
+            color: $faded-text
+            font-weight: 500
+            cursor: pointer
+            z-index: 5
+            border-radius: 24px
+            border: 2px solid $faded-text
+            font-size: .9em
+            background-size: cover
+
+
+            &.refined
+                background: gradiant()
+                color: $light
+                //border-color: transparent
 
 // Desktop
 @media screen and (min-width: 900px)
@@ -390,6 +391,7 @@ a
 
         .query input,
         .category,
+        .subcategory,
         .media.type label,
         .tag label
             background-color: $faded !important
@@ -397,58 +399,29 @@ a
         .media.type label
             padding: .62em 1.2em !important
 
-        .category
-            height: 100px
-            border-radius: 12px
+        .category,
+        .subcategory
+            //height: 100px
+            border-radius: 24px
 
             display: flex
             flex-direction: column
-            padding: 1.2em
+            //padding: 1.2em
             gap: .2em
 
             .title
                 font-weight: 600
-                font-size: 1.2em
+                font-size: 1em
                 text-transform: capitalize
-                color: $light
+                color: $faded-text
 
             .description
                 font-weight: 400
                 color: $faded-text
 
-        .category.selected
-            position: absolute
-            width: 100%
-            height: auto
-            min-height: 100%
-            box-sizing: border-box
+        .refined.category,
+        .refined.subcategory
+            background: gradiant()
 
-        .selected.category,
-        .by.subcategories,
-        .by.tags
-            border-radius: 12px
-            background-color: $light
-            padding: 12px 1.2em
-
-            h2,
-            > .description
-                display: block
-
-            header
-                margin-bottom: 1em
-
-            .subcategories
-                display: flex !important
-                flex-flow: row wrap
-                gap: 1em
-
-            .subcategory
-                border-radius: 12px
-                background-color: white
-                border: 1px solid rgba(0, 0, 0, 0.08) !important
-                padding: 12px 1.2em
-                height: 100px
-                flex: 1 0 40%
-
-            .description
-                color: $faded-text
+            .title
+                color: $light

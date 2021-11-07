@@ -1,4 +1,4 @@
-export default function Result({ title, subtitle, reference, type, source, description }) {
+export default function Result({ title, subtitle, reference, type, tags, source, description }) {
 	return (
 		<div className={`${type} resource`}>
 			<span className='media'>

@@ -7,6 +7,7 @@ import useParam from '../../../hooks/useParam'
 function Categories() {
 	const categories = useCategories()
 
+	console.log(categories)
 	return (
 		<div className='by categories'>
 			<p>I want to learn more about</p>
