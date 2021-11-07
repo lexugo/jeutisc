@@ -12,16 +12,16 @@ $faded-text: #8d96a7
 $disabled: #414866
 
 // Gradients
-@function gradiant($left, $right)
+@function linearGradiant($left, $right)
   @return linear-gradient(90deg, $left 0%, $right 100%)
 
-$yellow: gradiant(#fea85e, #edcaa8)
-$green: gradiant(#5bd676, #b2debb)
-$orange: gradiant(#fd7861, #e4b6ac)
-$pink: gradiant(#fe6a93, #edbdcb)
-$blue: gradiant(#82c4fe, #daeafe)
-$red: gradiant(#fe8384, #fed6d6)
-$purple: gradiant(#a08cfd, #c3b6fe)
+$yellow: linearGradiant(#fea85e, #edcaa8)
+$green: linearGradiant(#5bd676, #b2debb)
+$orange: linearGradiant(#fd7861, #e4b6ac)
+$pink: linearGradiant(#fe6a93, #edbdcb)
+$blue: linearGradiant(#82c4fe, #daeafe)
+$red: linearGradiant(#fe8384, #fed6d6)
+$purple: linearGradiant(#a08cfd, #c3b6fe)
 
 $gradiants: $yellow, $green, $orange, $pink, $blue, $purple
 

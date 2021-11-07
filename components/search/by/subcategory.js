@@ -9,13 +9,7 @@ export default function Subcategories() {
 
 	return (
 		<div className='by subcategories'>
-			<header>
-				<h2 className='title'>{ category }</h2>
-				<p className='description'>
-					Adipisci asperiores, consequuntur dignissimos fugiat magnam non, officiis,
-					quisquam ratione repudiandae sapiente voluptatibus.
-				</p>
-			</header>
+            <p>More specifically, I want to learn about</p>
 			<div className='subcategories'>
 				{ subcategories.map(category =>
 					<Subcategory key={category} label={category} onClick={() => console.log('click')} />)

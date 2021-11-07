@@ -14,8 +14,8 @@ function Subcategory() {
 
 export default searchable(Subcategory)
 
-export async function getStaticProps({ params: { category, subcategory } }) {
-	return { props: { category, subcategory }}
+export async function getStaticProps({ params: { category, categories, subcategory } }) {
+	return { props: { category, categories, subcategory }}
 }
 
 export async function getStaticPaths() {
@@ -23,6 +23,6 @@ export async function getStaticPaths() {
 	let subcategories = await Promise.all(categories.map(category => getCategory(category)))
 
 	const paths = subcategories.reduce((paths, { label: category, subcategories }) =>
-		[...paths, ...subcategories.map(subcategory => ({ params: { category, subcategory }}))], [])
+		[...paths, ...subcategories.map(subcategory => ({ params: { category, categories, subcategory }}))], [])
 	return { paths, fallback: false }
 }

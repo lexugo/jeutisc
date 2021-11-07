@@ -15,11 +15,13 @@ function Category() {
 export default searchable(Category)
 
 export async function getStaticProps({ params: { category } }) {
+	const categories = await getCategories()
 	const { subcategories } = await getCategory(category)
 
 	return {
 		props: {
 			category,
+			categories,
 			subcategories
 		}
 	}
