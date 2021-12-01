@@ -1,0 +1,45 @@
+@import 'query'
+@import 'checkbox'
+
+// Clear
+body, html, *
+	margin: 0
+	padding: 0
+
+ul,
+ol
+	list-style-type: none
+
+a
+	text-decoration: inherit
+	color: inherit
+
+input,
+button
+	border: none
+	outline: none
+	background: none
+	
+	&[type='search']
+		&::-webkit-search-decoration,
+		&::-webkit-search-cancel-button,
+		&::-webkit-search-results-button,
+		&::-webkit-search-results-decoration
+			display: none
+
+	&[type='text']
+		&::-ms-clear,
+		&::-ms-reveal
+			display: none
+			width: 0
+			height: 0
+
+// General
+input,
+.category
+	font-family: 'Roboto', sans-serif
+	font-weight: 500
+	
+	display: inline-block
+	border-radius: 24px
+	padding: 12px 1.2em
