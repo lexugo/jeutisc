@@ -7,16 +7,20 @@ function Query({ refine, currentRefinement: query }) {
 	}
 
 	return (
-		<div className={`by ${query && 'refined '}query`}>
-			<input
-				name='q'
-				type='search'
-				placeholder='I have a question about...'
-				autoComplete='off'
-				value={query}
-				onChange={({ target: { value }}) => refine(value)}
-			/>
-			{ query && <input type='reset' onClick={ handleReset } /> }
+		<div className={`by query`}>
+			<label htmlFor='q'>I have a question about</label>
+			<div className={`${query && 'refined '}query`}>
+				<input
+					id='q'
+					name='q'
+					type='search'
+					placeholder='I have a question about...'
+					autoComplete='off'
+					value={query}
+					onChange={({ target: { value }}) => refine(value)}
+				/>
+				{ query && <button className='clear' onClick={ handleReset } /> }
+			</div>
 		</div>
 	)
 }

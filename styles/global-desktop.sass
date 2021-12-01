@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700;900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
+
+@import 'variables'
+@import 'components/all'
+
+
+// Layout
+#__next // app
+    min-height: 100vh
+    display: grid
+    grid-template-rows: 1fr auto 1fr
+
+    background-color: $dark
+
+    >header
+        h1
+            font-size: 1.8em
+            color: white
+            font-family: 'Source Sans Pro', sans-serif
+            font-weight: 700
+            //margin-top: 1em
+        
+        position: sticky
+        top: 0
+        z-index: 0
+        padding: 1.4em
+        padding-top: 2rem
+    
+    >footer
+        color: white
+        font-family: 'Roboto', sans-serif
+        font-weight: 400
+        font-size: .9em
+
+    main
+        display: grid
+        grid-template-rows: 50px auto
+        gap: 1em
+        z-index: 1
+        
+        background-color: white
+        border-radius: 42px
+        padding: 0 21px
+        width: calc( 100vw - 42px )
+
+        >header
+            border-bottom: 1px solid #e2e2ed52 // Todo: ::after with dot under selected
+
+            nav
+                display: grid
+                grid-template-columns: 1fr 1fr
+                jutify-content: center
+                align-items: end
+                height: 100%
+
+                a
+                    font-family: 'Roboto', sans-serif
+                    font-weight: 600
+                    text-align: center
+                    opacity: .5
+                    margin-bottom: .8em
+
+                    &.focused
+                        opacity: 1
+
+// Search
+.search
+    font-size: .9em
+    font-family: 'Roboto', sans-serif
+    font-weight: 500
+    padding-top: 2rem
+
+    .by.categories,
+    .by.subcategories
+        margin-top: 1.2em
+
+        >p
+            color: $faded-text
+            font-weight: 400
+            margin-bottom: .3em
+
+        .categories,
+        .subcategories
+            display: grid
+            grid-template-columns: 1fr 1fr
+            gap: .9em
+            width: 100%
+
+    .category,
+    .subcategory,
+    .media.type > input + label,
+    .tag > input + label,
+    > footer button
+        display: flex
+        border-radius: 24px
+        text-transform: capitalize
+        color: $faded-text !important
+        //background-color: #0B10E114 // Todo: different colors
+        padding: 12px 1.2em
+        border: none
+
+    .media.type,
+    .tag
+        @for $i from 1 through 20
+            &:nth-child(#{$i})
+                > input:checked + label
+                    background: gradiant($i)
+
+        > input:checked + label
+            color: $light !important
+            background: $yellow
+
+            &:after
+                content: ''
+                display: inline-block
+                background-image: url('/icons/xmark-solid.svg')
+                background-repeat: no-repeat
+                background-blend-mode: color
+                height: 1.2em
+                width: 1.2em
+                margin-left: 1em
+                align-self: center
+
+        > input:not(:checked) + label
+            &:after
+                content: ''
+                display: inline-block
+                background-image: url('/icons/check-solid.svg')
+                background-repeat: no-repeat
+                background-blend-mode: color
+                height: 1.2em
+                width: 1.2em
+                margin-left: 1em
+                align-self: center
+        #all
+            &:after
+                content: none !important
+
+
+    .category .subcategories
+        display: none !important
+
+    .category > input:checked ~ .subcategories
+            display: flex !important
+
+    >footer
+        margin-top: auto
+        margin-bottom: 1em
+
+        display: flex
+        justify-content: space-between
+        gap: .9em
+
+        #submit
+            width: 100%
+            background-color: #0B10E1
+            color: white
+
+
+// Resources
+.resources
+    display: flex
+    flex-direction: column
+    gap: .9em
+    grid-area: main
+
+    font-family: 'Roboto', sans-serif
+    font-weight: 400
+    font-size: .9em
+    margin-bottom: 21px
+
+    .count
+        color: $faded-text
+        margin-bottom: -.5em
+
+.resource
+    padding: 1.6em 1.6em 1.2em
+    background-color: $faded
+    border-radius: 12px
+
+    display: grid
+    grid-template-columns: auto auto
+
+    &:hover
+        background: gradiant()
+
+        .media .type
+            background: none
+            -webkit-text-fill-color: $faded
+
+        .description
+            color: white
+
+        .media a
+            color: $faded
+
+        .tags .tag
+            color: $faded
+            border-color: $faded
+
+    .title
+        font-weight: 600
+        font-size: 1.4em
+        color: $light
+        margin-top: .3em
+        grid-column: 1 / 2
+
+    .description
+        color: $faded-text
+        grid-column: 1 / 2
+
+    .media
+        font-size: 1em
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        width: 80%
+        color: $faded-text
+
+        .type
+            font-weight: 600
+            background: gradiant()
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            margin-right: .5em
+            text-transform: capitalize
+
+        a
+            color: $faded-text
+
+    .actions
+        grid-column: 2 / 3
+        grid-row: 1 / 4
+        display: flex
+        flex-direction: column
+        justify-self: end
+        justify-content: space-between
+
+        button
+            border: none
+            width: 1.3em
+            height: 1.3em
+            cursor: pointer
+
+        .bookmark
+            background: url('/icons/bookmark-regular.svg') no-repeat center
+
+        .bookmarked
+            background: url('/icons/bookmark-solid.svg') no-repeat center
+
+        .share
+            background: url('/icons/share-solid.svg') no-repeat center
+
+        .details
+            background: url('/icons/circle-info-solid.svg') no-repeat center
+
+    .tags
+        display: flex
+        gap: .9em
+        margin-top: 1em
+        align-items: center
+
+        .tag
+            text-transform: capitalize
+            padding: .62em 1.2em
+            color: $faded-text
+            font-weight: 500
+            cursor: pointer
+            z-index: 5
+            border-radius: 24px
+            border: 2px solid $faded-text
+            font-size: .9em
+            background-size: cover
+
+
+            &.refined
+                background: gradiant()
+                color: $light
+                //border-color: transparent
+
+// Desktop
+@media screen and (min-width: 900px)
+    #__next // app
+        grid-template-rows: min-content min-content auto min-content
+        grid-template-columns: max(120px, 10vw) auto
+        grid-template-areas: 'logo header' 'space main' 'space footer'
+        gap: 2em
+
+        > header
+            grid-area: logo
+            justify-self: center
+
+        > footer
+            color: black
+            grid-area: footer
+
+        > main
+            display: none !important
+            padding: 0
+            grid-area: main
+            grid-template-rows: 100%
+            grid-template-columns: 1fr 1fr
+            grid-template-areas: 'left right'
+            gap: 7em
+            max-width: 1430px
+            background: none
+
+            > header
+                display: none
+
+            form.search
+                footer
+                    display: none
+
+    .search,
+    .resources
+        width: 50vw
+        max-width: 600px
+
+    .search
+        grid-area: header
+        align-self: center
+
+        display: grid
+        grid-template-rows: auto auto
+        gap: .9em
+
+        h2
+            display: none
+
+        .category,
+        .subcategory,
+        .media.type label,
+        .tag label
+            background-color: $faded !important
+
+        .media.type label
+            padding: .62em 1.2em !important
+
+        .category,
+        .subcategory
+            //height: 100px
+            border-radius: 24px
+
+            display: flex
+            flex-direction: column
+            //padding: 1.2em
+            gap: .2em
+
+            .title
+                font-weight: 600
+                font-size: 1em
+                text-transform: capitalize
+                color: $faded-text
+
+            .description
+                font-weight: 400
+                color: $faded-text
+
+        .refined.category,
+        .refined.subcategory
+            background: gradiant()
+
+            .title
+                color: $light
