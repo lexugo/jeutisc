@@ -1,0 +1,51 @@
+.by.media.type
+	.media.types
+		display: flex
+		flex-flow: row wrap
+		gap: .9em
+	
+	input[type='checkbox']
+		display: none // Replace with icon and label
+
+	.media.type
+		// Random color
+		@for $i from 1 through 20
+			&:nth-child(#{$i})
+				> input:checked + label
+					background: gradiant($i)
+		
+		label
+			display: flex
+			border-radius: 24px
+			text-transform: capitalize
+			color: $faded-text
+			background-color: $faded
+			padding: 12px 1.2em
+			border: none
+			font-size: .9em
+			
+			&:after
+				content: ''
+				display: inline-block
+				background-image: url('/icons/check-solid.svg')
+				background-repeat: no-repeat
+				background-blend-mode: color
+				height: 1.2em
+				width: 1.2em
+				margin-left: 1em
+				align-self: center
+			
+			
+		> input:checked + label
+			color: $light
+			
+			&:after
+				content: ''
+				display: inline-block
+				background-image: url('/icons/xmark-solid.svg')
+				background-repeat: no-repeat
+				background-blend-mode: color
+				height: 1.2em
+				width: 1.2em
+				margin-left: 1em
+				align-self: center
