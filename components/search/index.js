@@ -29,7 +29,7 @@ export default function Search() {
 					<Input />
 					<Categories currentRefinement={category} />
 					<MediaTypes />
-					{ category && <Subcategories /> }
+					{ category && <Subcategories currentRefinement={subcategory} /> }
 				</form>
 				<Results />
 			</InstantSearch>
