@@ -5,8 +5,12 @@ import Result from 'components/search/result'
 function Results({ hits }) {
 	return (
 		<div className="resources">
-			<p className='count'>We found {hits.length} matching resources</p>
-			{ hits.map(({ objectID: id, ...props }) => <Result key={id} {...props} />) }
+			<header>
+				<p className='count'>We found {hits.length} matching resources</p>
+			</header>
+			<div className="results">
+				{ hits.map(({ objectID: id, ...props }) => <Result key={id} {...props} />) }
+			</div>
 		</div>
 	)
 }

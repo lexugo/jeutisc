@@ -25,8 +25,9 @@ export default function Search() {
 			>
 				<form action='#' className='search'> {/* Todo: handle submit */}
 					<Config category={category} subcategory={subcategory} />
+
 					<Input />
-					<Categories />
+					<Categories currentRefinement={category} />
 					<MediaTypes />
 					{ category && <Subcategories /> }
 				</form>
