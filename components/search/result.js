@@ -7,9 +7,6 @@ export default function Result({ title, subtitle, reference, type, tags, source,
 			</span>
 			<h4 className='title'>{ reference ? <a href={ reference }>{ title }</a> : title }</h4>
 			{ subtitle && <p className='description'>{ subtitle }</p> }
-			<nav className='actions'>
-				<button className='bookmark' />
-			</nav>
 		</div>
 	)
 }

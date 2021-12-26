@@ -1,28 +1,25 @@
 import { useCategories } from 'hooks/useSearch'
 
-import { Configure } from 'react-instantsearch-dom'
 import Link from 'components/link'
-import useParam from '../../../hooks/useParam'
 
-function Categories() {
+function Categories({ currentRefinement: refinement }) {
 	const categories = useCategories()
 
-	console.log(categories)
 	return (
 		<div className='by categories'>
 			<p>I want to understand more about</p>
 			<div className='categories'>
 				{ categories?.map(category =>
-					<Category key={category} label={category} onClick={() => console.log('click')} />)
+					<Category key={category} label={category} refined={category === refinement} />)
 				}
 			</div>
 		</div>
 	)
 }
 
-function Category({ label }) {
+function Category({ label, refined }) {
 	return (
-		<Link href={`/${label}`} className='category'>
+		<Link href={`${label}`} className={(refined ? 'refined ' : '') + 'category'}>
 			<h3 className='title'>{ label }</h3>
 			<p className='description'>
 				Facilis harum impedit maxime molestiae rem reprehenderit suscipit veniam.
