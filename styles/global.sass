@@ -1,12 +1,9 @@
 @import 'variables'
 @import 'components/all'
 
-.resources
-	display: none
-
 // Layout
 #__next // App
-	height: 100vh
+	min-height: 100vh
 	padding: 1.4em
 	
 	background-color: $dark
@@ -22,18 +19,29 @@
 			font-family: 'Source Sans Pro', sans-serif
 			font-weight: 700
 		
+	> footer // Footer
+		font-size: .9em
+		font-family: 'Roboto', sans-serif
+		font-weight: 400
+		color: $faded-text
+		text-align: center
+		
 // Search
-.search
+.search,
+.resources
 	font-size: .9em
 	font-family: 'Roboto', sans-serif
 	font-weight: 500
-
+	
+.search,
+.resources .results
 	display: flex
 	flex-direction: column
 	gap: .9rem
 	
 .by > label,
-.by > p
+.by > p,
+.resources > header p
 	color: $faded-text
 	margin-left: 12px // Offset with border radius
 	line-height: 1.6em
@@ -41,19 +49,20 @@
 	+tablet
 		display: none
 
-.by.categories
-	.categories
+.by.categories,
+.by.subcategories
+	.categories,
+	.subcategories
 		display: grid
 		grid-template-columns: 1fr 1fr
 		gap: .9em
 	
-	.category
+	.category,
+	.subcategory
 		color: $faded-text
 		background-color: $faded
 		
 		padding: 1em 1.2em
-		//padding-top: 1em
-		//padding-bottom: 1em
 		
 		.title
 			font-size: .9em
@@ -63,6 +72,3 @@
 		
 		.description
 			display: none
-
-
-// Resources
