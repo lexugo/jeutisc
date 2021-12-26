@@ -3,17 +3,20 @@
 
 // Layout
 #__next // App
-	min-height: 100vh
+	min-height: calc(100vh - 1.4em * 2)
 	padding: 1.4em
 	
 	background-color: $dark
 	
 	display: grid
-	grid-template-rows: min-content auto
+	grid-template-rows: repeat(3, min-content) auto
+	grid-template-areas: 'logo' 'search' 'resources' 'footer'
 	gap: 1.4rem
 	
 	> header // Header
-		h1
+		grid-area: logo
+		
+		.logo
 			font-size: 1.8em
 			color: white
 			font-family: 'Source Sans Pro', sans-serif
@@ -24,14 +27,32 @@
 		font-family: 'Roboto', sans-serif
 		font-weight: 400
 		color: $faded-text
-		text-align: center
 		
-// Search
+		grid-area: footer
+		justify-self: center
+		align-self: end
+		margin: 1em
+		
+	+tablet
+		grid-template-rows: min-content min-content auto
+		grid-template-columns: clamp(120px, 20vw, 180px) auto
+		grid-template-areas: 'logo search' 'logo resources' 'footer footer'
+		
+		> header
+			justify-self: end
+			
+			.logo
+				position: sticky
+				top: 1.6em  // Match the query input
+			
+// Search·
 .search,
 .resources
 	font-size: .9em
 	font-family: 'Roboto', sans-serif
 	font-weight: 500
+	
+	max-width: 600px
 	
 .search,
 .resources .results
@@ -45,9 +66,6 @@
 	color: $faded-text
 	margin-left: 12px // Offset with border radius
 	line-height: 1.6em
-	
-	+tablet
-		display: none
 
 .by.categories,
 .by.subcategories
