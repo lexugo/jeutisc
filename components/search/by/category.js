@@ -19,7 +19,7 @@ function Categories({ currentRefinement: refinement }) {
 
 function Category({ label, refined }) {
 	return (
-		<Link href={`${label}`} className={(refined ? 'refined ' : '') + 'category'}>
+		<Link href={`/${label}`} className={(refined ? 'refined ' : '') + 'category'}>
 			<h3 className='title'>{ label }</h3>
 			<p className='description'>
 				Facilis harum impedit maxime molestiae rem reprehenderit suscipit veniam.
