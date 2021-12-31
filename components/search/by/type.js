@@ -5,9 +5,9 @@ import { refined } from 'components/search/by/refinement'
 function Types({ items: types, refine, currentRefinement: refinements }) {
 	return (
 		<div className='by media type'>
-			<label htmlFor='medias'>I prefer to see</label>
+			<label htmlFor='medias'>Je préfère voir les</label>
 			<div className='media types'>
-				<Type label='all' value='' isRefined={!refinements.length} onChange={() => refine('')} />
+				<Type label='Tous' value='' isRefined={!refinements.length} onChange={() => refine('')} />
 				{ types.map(type =>
 					<Type key={type.label} {...type} onChange={() => refine(type.value)}  />)
 				}

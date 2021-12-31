@@ -8,13 +8,13 @@ function Query({ refine, currentRefinement: query }) {
 
 	return (
 		<div className={`by query`}>
-			<label htmlFor='q'>I have a question about</label>
+			<label htmlFor='q'>J'ai une question sur</label>
 			<div className={`${query && 'refined '}query`}>
 				<input
 					id='q'
 					name='q'
 					type='search'
-					placeholder='I have a question about...'
+					placeholder='...'
 					autoComplete='off'
 					value={query}
 					onChange={({ target: { value }}) => refine(value)}

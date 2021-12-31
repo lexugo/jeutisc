@@ -6,7 +6,7 @@ function Results({ hits }) {
 	return (
 		<div className="resources">
 			<header>
-				<p className='count'>We found {hits.length} matching resources</p>
+				<p className='count'>Nous avons trouvé {hits.length} ressources</p>
 			</header>
 			<div className="results">
 				{ hits.map(({ objectID: id, ...props }) => <Result key={id} {...props} />) }

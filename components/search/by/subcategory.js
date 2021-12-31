@@ -8,7 +8,7 @@ export default function Subcategories({ currentRefinement: refinement }) {
 
 	return (
 		<div className='by subcategories'>
-            <p>More specifically, I want to learn about</p>
+            <p>Plus précisement, je veux en apprendre sur</p>
 			<div className='subcategories'>
 				{ subcategories.map(category =>
 					<Subcategory key={category} label={category} refined={category === refinement} />)

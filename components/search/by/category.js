@@ -7,7 +7,7 @@ function Categories({ currentRefinement: refinement }) {
 
 	return (
 		<div className='by categories'>
-			<p>I want to understand more about</p>
+			<p>Je veux en savoir plus à propos de</p>
 			<div className='categories'>
 				{ categories?.map(category =>
 					<Category key={category} label={category} refined={category === refinement} />)
