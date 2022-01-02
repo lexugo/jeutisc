@@ -27,13 +27,14 @@ $gradiants: $yellow, $green, $orange, $pink, $blue, $purple
   @return nth($gradiants, $nth)
 
 // Responsiveness
+$mobile: 339px !default
 $tablet: 647px !default
 $desktop: 992px !default
 $widescreen: 1200px !default
 $fullscreen: 1344px !default
 
 =mobile
-  @media screen and (max-width: $tablet - 1px)
+  @media screen and (min-width: $mobile)
     @content
 
 =tablet

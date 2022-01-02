@@ -52,14 +52,14 @@
 	font-family: 'Roboto', sans-serif
 	font-weight: 500
 	
-	max-width: 600px
-	
 .search,
 .resources .results
 	display: flex
 	flex-direction: column
 	gap: .9rem
 	
+	max-width: 600px
+
 .by > label,
 .by > p,
 .resources > header p
@@ -72,8 +72,11 @@
 	.categories,
 	.subcategories
 		display: grid
-		grid-template-columns: 1fr 1fr
+		grid-template-columns: 1fr
 		gap: .9em
+		
+		+mobile
+			grid-template-columns: 1fr 1fr
 	
 	.category,
 	.subcategory

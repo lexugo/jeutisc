@@ -14,7 +14,7 @@ export default function Result({ title, subtitle, reference, type, source, descr
 		<div className={`${detailedClass}resource`} onClick={handleToggle}>
 			<span className='media'>
 				<span className='type'>{ mediaType }</span>
-				<a href={reference} target='_blank' className='reference'>{ reference }</a>
+				{ reference && <a href={ reference } target='_blank' className='reference'>{ reference }</a> }
 			</span>
 
 			<h4 className='title'>{ reference ? <a href={ reference } target='_blank'>{ title }</a> : title }</h4>
